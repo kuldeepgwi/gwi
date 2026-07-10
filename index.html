@@ -157,12 +157,16 @@
             <p>Account nahi hai? <a href="#" onclick="toggleAuth(event, 'register')">Register Karein</a></p>
         </div>
 
-        <!-- Register Form (Hidden by default) -->
+        <!-- Register Form -->
         <div class="auth-container" id="register-box" style="display: none;">
             <h2>GWI Registration</h2>
-            <input type="text" id="reg-name" placeholder="Apna Naam Dalein" required>
-            <input type="email" id="reg-email" placeholder="Email Id Dalein" required>
+            <input type="text" id="reg-sponsor" placeholder="Sponsor ID Dalein (Optional)">
+            <input type="text" id="reg-name" placeholder="Apna Name Dalein" required>
+            <input type="tel" id="reg-mobile" placeholder="Mobile Number Dalein" required>
+            <input type="email" id="reg-email" placeholder="Email ID Dalein" required>
             <input type="password" id="reg-password" placeholder="Password Set Karein" required>
+            <input type="text" id="reg-state" placeholder="Apna State Dalein" required>
+            <input type="text" id="reg-country" placeholder="Apni Country Dalein" required>
             <button onclick="registerUser()">Register</button>
             <p>Pehle se account hai? <a href="#" onclick="toggleAuth(event, 'login')">Login Karein</a></p>
         </div>
@@ -186,7 +190,6 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        // Firebase Config (Abhi default chhod rahe hain)
         const firebaseConfig = {
             apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_AUTH_DOMAIN",
@@ -199,7 +202,6 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        // Toggle between Login and Register
         window.toggleAuth = function(e, mode) {
             e.preventDefault();
             if(mode === 'register') {
@@ -211,7 +213,6 @@
             }
         }
 
-        // Login Function
         window.loginUser = function() {
             const email = document.getElementById('login-email').value;
             const pass = document.getElementById('login-password').value;
@@ -226,16 +227,23 @@
                 });
         }
 
-        // Register Function
         window.registerUser = function() {
+            const sponsor = document.getElementById('reg-sponsor').value;
             const name = document.getElementById('reg-name').value;
+            const mobile = document.getElementById('reg-mobile').value;
             const email = document.getElementById('reg-email').value;
             const pass = document.getElementById('reg-password').value;
-            if(!name || !email || !pass) return alert('Kripya sabhi details bharein');
+            const state = document.getElementById('reg-state').value;
+            const country = document.getElementById('reg-country').value;
+            
+            if(!name || !mobile || !email || !state || !country || !pass) {
+                return alert('Kripya sabhi details bharein');
+            }
 
             createUserWithEmailAndPassword(auth, email, pass)
                 .then((userCredential) => {
                     alert('Registration Safal Raha!');
+                    console.log("User Data:", { sponsor, name, mobile, email, state, country });
                 })
                 .catch((error) => {
                     alert('Error: ' + error.message);
