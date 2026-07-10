@@ -148,7 +148,7 @@
 
     <!-- Login / Register Section -->
     <section id="login-section">
-        <!-- Login Form (Updated to GWI-USER ID) -->
+        <!-- Login Form -->
         <div class="auth-container" id="login-box">
             <h2>GWI Login</h2>
             <input type="text" id="login-email" placeholder="GWI-USER ID" required>
@@ -190,13 +190,15 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
+        // Updated with your actual Firebase config from screenshot
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            apiKey: "AIzaSyA9qM23DtbZ6XnqTALcgQG1...",
+            authDomain: "growth-with-india.firebaseapp.com",
+            projectId: "growth-with-india",
+            storageBucket: "growth-with-india.firebasestorage.app",
+            messagingSenderId: "647785356848",
+            appId: "1:647785356848:web:f94826b33174cd6003d7f5",
+            measurementId: "G-WKBM18W1CG"
         };
 
         const app = initializeApp(firebaseConfig);
