@@ -1,234 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growth With India (GWI)</title>
+    <title>Growth With India (GWI) - Registration</title>
     <style>
         body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0a0a0a;
-            color: white;
-            text-align: center;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        header {
-            background: linear-gradient(135deg, #000, #222);
-            padding: 60px 20px;
-        }
-        h1 {
-            color: gold;
-            font-size: 40px;
-            margin: 0;
-        }
-        p {
-            font-size: 18px;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background: gold;
-            color: black;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-        section {
-            padding: 40px 20px;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .service-box {
-            background: #111;
-            padding: 25px;
+        .container {
+            background-color: #1f2833;
+            border: 2px solid #c5a059;
             border-radius: 10px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-        .service-box:hover {
-            border-color: gold;
-        }
-        .service-box h3 {
-            color: gold;
-        }
-        
-        /* Login & Register Form Styling */
-        .auth-container {
-            max-width: 350px;
-            margin: 40px auto;
-            background: #111;
             padding: 30px;
-            border-radius: 15px;
-            border: 1px solid gold;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
-        }
-        .auth-container h2 {
-            color: gold;
-            margin-bottom: 20px;
-        }
-        .auth-container input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            background: #222;
-            border: 1px solid #444;
-            color: white;
-            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
             box-sizing: border-box;
         }
-        .auth-container button {
+        h2 {
+            color: #c5a059;
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        input, select {
             width: 100%;
             padding: 12px;
-            background: gold;
-            color: black;
+            background-color: #0b0c10;
+            border: 1px solid #45f3ff;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus {
+            border-color: #c5a059;
+            outline: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #c5a059;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
+            color: #0b0c10;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             margin-top: 15px;
-            font-size: 16px;
+            transition: 0.3s;
         }
-        .auth-container p {
+        .btn:hover {
+            background-color: #e5c07b;
+        }
+        .footer-text {
+            margin-top: 20px;
             font-size: 14px;
-            margin-top: 15px;
+            color: #c5a059;
         }
-        .auth-container a {
-            color: gold;
+        .footer-text a {
+            color: #45f3ff;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Growth With India</h1>
-        <p>Learn Digital Skills & Earn Daily</p>
-        <a href="#register-box" class="btn">Get Started</a>
-    </header>
-
-    <section>
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-box">
-                <h3>Digital Marketing</h3>
-                <p>Learn how to grow businesses online using social media.</p>
-            </div>
-            <div class="service-box">
-                <h3>Website Development</h3>
-                <p>Create beautiful websites easily and start your agency.</p>
-            </div>
-            <div class="service-box">
-                <h3>Graphic Designing</h3>
-                <p>Master Canva and Photoshop to design professional posters.</p>
-            </div>
+<div class="container">
+    <h2>GWI Registration</h2>
+    <form id="registrationForm">
+        <div class="input-group">
+            <input type="text" id="sponsorId" placeholder="Sponsor ID Dalein (Optional)">
         </div>
-    </section>
-
-    <!-- Register Form -->
-    <div class="auth-container" id="register-box">
-        <h2>GWI Registration</h2>
-        <input type="text" id="reg-sponsor" placeholder="Sponsor ID Dalein (Optional)">
-        <input type="text" id="reg-name" placeholder="Apna Name Dalein">
-        <input type="tel" id="reg-mobile" placeholder="Mobile Number Dalein">
-        <input type="email" id="reg-email" placeholder="Apni Email ID Dalein">
-        <input type="password" id="reg-password" placeholder="Password Set Karein">
-        <input type="text" id="reg-state" placeholder="Apna State Dalein">
-        <input type="text" id="reg-country" placeholder="Apni Country Dalein">
-        <button onclick="registerUser()">Register</button>
-        <p>Pehle se account hai? <a href="#" onclick="toggleAuth(event, 'login')">Login Karein</a></p>
+        <div class="input-group">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+        </div>
+        <div class="input-group">
+            <input type="tel" id="mobileNumber" placeholder="Mobile Number" required>
+        </div>
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="state" placeholder="State" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="country" placeholder="Country" value="India" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <div class="footer-text">
+        Pehle se account hai? <a href="login.html">Login Karein</a>
     </div>
+</div>
 
-    <!-- Login Form (Hidden by Default) -->
-    <div class="auth-container" id="login-box" style="display: none;">
-        <h2>GWI Login</h2>
-        <input type="email" id="login-email" placeholder="Apni Email ID Dalein">
-        <input type="password" id="login-password" placeholder="Apna Password Dalein">
-        <button onclick="loginUser()">Login</button>
-        <p>Naya account banana hai? <a href="#" onclick="toggleAuth(event, 'register')">Register field</a></p>
-    </div>
+<!-- Firebase SDK Loading -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
-    <section style="background: #050505;">
-        <h2>Why Choose GWI?</h2>
-        <p>✔️ No Experience Required</p>
-        <p>✔️ Students, Male & Female Welcome</p>
-        <p>✔️ Learn Practical Skills</p>
-        <p>✔️ Grow With GWI</p>
-    </section>
+<script>
+    // Firebase Configuration (Sahi API Key Ke Sath)
+    const firebaseConfig = {
+        apiKey: "AIzaSyA9qM230tbZ6XnqTALcgQG1mW-S-iO9oOQ",
+        authDomain: "gwi-project-ae566.firebaseapp.com",
+        projectId: "gwi-project-ae566",
+        storageBucket: "gwi-project-ae566.appspot.com",
+        messagingSenderId: "367280927891",
+        appId: "1:367280927891:web:5d2ab00c5980757d24ab24"
+    };
 
-    <footer>
-        <p>📞 WhatsApp: 8233781854</p>
-        <p>&copy; 2026 Growth With India</p>
-    </footer>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
 
-    <!-- Firebase JS SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    // Form Submit Handlers
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const fullName = document.getElementById('fullName').value;
+        const mobile = document.getElementById('mobileNumber').value;
+        const sponsorId = document.getElementById('sponsorId').value;
+        const state = document.getElementById('state').value;
+        const country = document.getElementById('country').value;
 
-        const firebaseConfig = {
-          apiKey: "AIzaSyA9qM230tbZ6XnqTALcgQG1mW-S-iO9oOQ",
-
-          authDomain: "growth-with-india.firebaseapp.com",
-          projectId: "growth-with-india",
-          storageBucket: "growth-with-india.firebasestorage.app",
-          messagingSenderId: "647785356848",
-          appId: "1:647785356848:web:f94826b33174cd60O3d7f5",
-          measurementId: "G-WKBM18W1CG"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        window.toggleAuth = function(e, mode) {
-            e.preventDefault();
-            if(mode === 'register') {
-                document.getElementById('login-box').style.display = 'none';
-                document.getElementById('register-box').style.display = 'block';
-            } else {
-                document.getElementById('login-box').style.display = 'block';
-                document.getElementById('register-box').style.display = 'none';
-            }
-        }
-
-        window.loginUser = function() {
-            const email = document.getElementById('login-email').value;
-            const pass = document.getElementById('login-password').value;
-            if(!email || !pass) return alert('Kripya sabhi fields bharein!');
-
-            signInWithEmailAndPassword(auth, email, pass)
+        auth.createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
-                alert('Login Safal Raha!');
+                const user = userCredential.user;
+                // Save user details to Firestore
+                return db.collection("users").doc(user.uid).set({
+                    uid: user.uid,
+                    fullName: fullName,
+                    mobile: mobile,
+                    email: email,
+                    sponsorId: sponsorId,
+                    state: state,
+                    country: country,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            })
+            .then(() => {
+                alert("Registration Successful!");
+                window.location.href = "dashboard.html"; 
             })
             .catch((error) => {
-                alert('Error: ' + error.message);
+                alert("Error: " + error.message);
             });
-        }
-
-        window.registerUser = function() {
-            const name = document.getElementById('reg-name').value;
-            const mobile = document.getElementById('reg-mobile').value;
-            const email = document.getElementById('reg-email').value;
-            const pass = document.getElementById('reg-password').value;
-
-            if(!name || !mobile || !email || !pass) {
-                return alert('Kripya Name, Mobile, Email aur Password zaroor bharein!');
-            }
-
-            createUserWithEmailAndPassword(auth, email, pass)
-            .then((userCredential) => {
-                alert('Registration Safal Raha! Welcome ' + name);
-            })
-            .catch((error) => {
-                alert('Error: ' + error.message);
-            });
-        }
-    </script>
+    });
+</script>
 
 </body>
 </html>
