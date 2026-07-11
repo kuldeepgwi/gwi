@@ -1,21 +1,256 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth With India (GWI)</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(135deg, #000, #222);
+            padding: 60px 20px;
+        }
+        h1 {
+            color: gold;
+            font-size: 40px;
+            margin: 0;
+        }
+        p {
+            font-size: 18px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: gold;
+            color: black;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px 20px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .service-box {
+            background: #111;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .service-box:hover {
+            border-color: gold;
+        }
+        .service-box h3 {
+            color: gold;
+        }
+        
+        /* Login & Register Form Styling */
+        .auth-container {
+            max-width: 350px;
+            margin: 40px auto;
+            background: #111;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid gold;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+        .auth-container h2 {
+            color: gold;
+            margin-bottom: 20px;
+        }
+        .auth-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .auth-container input:focus {
+            border-color: gold;
+            outline: none;
+        }
+        .auth-container button {
+            width: 100%;
+            padding: 12px;
+            background: gold;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .auth-container p {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .auth-container a {
+            color: gold;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #000;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyA9qM23DtbZ6XnqTALcgQG1AIcHlECIuXA",
-  authDomain: "growth-with-india.firebaseapp.com",
-  projectId: "growth-with-india",
-  storageBucket: "growth-with-india.firebasestorage.app",
-  messagingSenderId: "647785356848",
-  appId: "1:647785356848:web:f94826b33174cd6003d7f5",
-  measurementId: "G-WK8M10W1CG"
-};
+    <header>
+        <h1>Growth With India</h1>
+        <p>Your Journey to Success Begins Here</p>
+        <a href="#login-section" class="btn">Get Started</a>
+    </header>
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+    <section>
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <h3>Profile Building</h3>
+                <p>Learn how to create a professional presence online.</p>
+            </div>
+            <div class="service-box">
+                <h3>Branding</h3>
+                <p>Build your unique identity and stand out from the crowd.</p>
+            </div>
+            <div class="service-box">
+                <h3>Advertisement</h3>
+                <p>Master the art of reaching the right audience.</p>
+            </div>
+            <div class="service-box">
+                <h3>Social Media Services</h3>
+                <p>Grow your reach and engagement effectively.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login / Register Section -->
+    <section id="login-section">
+        <!-- Login Form -->
+        <div class="auth-container" id="login-box">
+            <h2>GWI Login</h2>
+            <input type="text" id="login-email" placeholder="GWI-USER ID / Email" required>
+            <input type="password" id="login-password" placeholder="Enter password" required>
+            <button onclick="loginUser()">Login</button>
+            <p>Account nahi hai? <a href="#" onclick="toggleAuth(event, 'register')">Register Karein</a></p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="auth-container" id="register-box" style="display: none;">
+            <h2>GWI Registration</h2>
+            <input type="text" id="reg-sponsor" placeholder="Sponsor ID Dalein (Optional)">
+            <input type="text" id="reg-name" placeholder="Apna Name Dalein" required>
+            <input type="tel" id="reg-mobile" placeholder="Mobile Number Dalein" required>
+            <input type="email" id="reg-email" placeholder="Apni Email ID Dalein" required>
+            <input type="password" id="reg-password" placeholder="Password Set Karein" required>
+            <input type="text" id="reg-state" placeholder="Apna State Dalein" required>
+            <input type="text" id="reg-country" placeholder="Apni Country Dalein" required>
+            <button onclick="registerUser()">Register</button>
+            <p>Pehle se account hai? <a href="#" onclick="toggleAuth(event, 'login')">Login Karein</a></p>
+        </div>
+    </section>
+
+    <section style="background: #050505;">
+        <h2 style="color: gold;">Why Choose GWI?</h2>
+        <p>✔️ No Experience Required</p>
+        <p>✔️ Students, Male & Female Welcome</p>
+        <p>✔️ Learn Practical Skills</p>
+        <p>✔️ Grow With GWI</p>
+    </section>
+
+    <footer>
+        <p>📞 WhatsApp: 8233781854</p>
+        <p>&copy; 2026 Growth With India</p>
+    </footer>
+
+    <!-- Firebase JS SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // आपकी बिल्कुल सही और पूरी चाबी यहाँ सेट कर दी गई है
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9qM23DtbZ6XnqTALcgQG1AlchIECluXA",
+            authDomain: "growth-with-india.firebaseapp.com",
+            projectId: "growth-with-india",
+            storageBucket: "growth-with-india.firebasestorage.app",
+            messagingSenderId: "647785356848",
+            appId: "1:647785356848:web:f94826b33174cd6003d7f5",
+            measurementId: "G-WKBM18W1CG"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        window.toggleAuth = function(e, mode) {
+            e.preventDefault();
+            if(mode === 'register') {
+                document.getElementById('login-box').style.display = 'none';
+                document.getElementById('register-box').style.display = 'block';
+            } else {
+                document.getElementById('login-box').style.display = 'block';
+                document.getElementById('register-box').style.display = 'none';
+            }
+        }
+
+        window.loginUser = function() {
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-password').value;
+            if(!email || !pass) return alert('Kripya sabhi details bharein');
+            
+            signInWithEmailAndPassword(auth, email, pass)
+                .then((userCredential) => {
+                    alert('Login Safal Raha!');
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        }
+
+        window.registerUser = function() {
+            const sponsor = document.getElementById('reg-sponsor').value;
+            const name = document.getElementById('reg-name').value;
+            const mobile = document.getElementById('reg-mobile').value;
+            const email = document.getElementById('reg-email').value;
+            const pass = document.getElementById('reg-password').value;
+            const state = document.getElementById('reg-state').value;
+            const country = document.getElementById('reg-country').value;
+            
+            if(!name || !mobile || !email || !state || !country || !pass) {
+                return alert('Kripya sabhi details bharein');
+            }
+
+            createUserWithEmailAndPassword(auth, email, pass)
+                .then((userCredential) => {
+                    alert('Registration Safal Raha!');
+                    console.log("User Data Saved:", { sponsor, name, mobile, email, state, country });
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        }
+    </script>
+</body>
+</html>
