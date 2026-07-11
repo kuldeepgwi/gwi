@@ -109,13 +109,11 @@
     </div>
 </div>
 
-<!-- Firebase SDK Loading -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 <script>
-    // Firebase Configuration (Sahi API Key Ke Sath)
     const firebaseConfig = {
         apiKey: "AIzaSyA9qM230tbZ6XnqTALcgQG1mW-S-iO9oOQ",
         authDomain: "gwi-project-ae566.firebaseapp.com",
@@ -125,12 +123,10 @@
         appId: "1:367280927891:web:5d2ab00c5980757d24ab24"
     };
 
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
     const db = firebase.firestore();
 
-    // Form Submit Handlers
     document.getElementById('registrationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -145,7 +141,6 @@
         auth.createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
-                // Save user details to Firestore
                 return db.collection("users").doc(user.uid).set({
                     uid: user.uid,
                     fullName: fullName,
