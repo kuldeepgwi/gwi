@@ -151,7 +151,7 @@
         <!-- Login Form -->
         <div class="auth-container" id="login-box">
             <h2>GWI Login</h2>
-            <input type="text" id="login-email" placeholder="GWI-USER ID" required>
+            <input type="text" id="login-email" placeholder="GWI-USER ID / Email" required>
             <input type="password" id="login-password" placeholder="Enter password" required>
             <button onclick="loginUser()">Login</button>
             <p>Account nahi hai? <a href="#" onclick="toggleAuth(event, 'register')">Register Karein</a></p>
@@ -190,9 +190,9 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-        // Updated with your actual Firebase config from screenshot
+        // आपकी पूरी की (Key) यहाँ डाल दी गई है
         const firebaseConfig = {
-            apiKey: "AIzaSyA9qM23DtbZ6XnqTALcgQG1...",
+            apiKey: "AIzaSyA9qM23DtbZ6XnqTALcgQG1aGgQG1A",
             authDomain: "growth-with-india.firebaseapp.com",
             projectId: "growth-with-india",
             storageBucket: "growth-with-india.firebasestorage.app",
@@ -245,7 +245,7 @@
             createUserWithEmailAndPassword(auth, email, pass)
                 .then((userCredential) => {
                     alert('Registration Safal Raha!');
-                    console.log("User Data:", { sponsor, name, mobile, email, state, country });
+                    console.log("User Data Saved:", { sponsor, name, mobile, email, state, country });
                 })
                 .catch((error) => {
                     alert('Error: ' + error.message);
